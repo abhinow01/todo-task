@@ -5,7 +5,7 @@ import WeekCalendar from './WeekCalendar';
 import TaskStats from './TaskStats';
 import TaskList from './TaskList';
 import TaskForm from './TaskForm';
-
+import { Plus } from 'lucide-react';
 const ToDoApp = () => {
   const [tasks, setTasks] = useState([]);
   const [currentView, setCurrentView] = useState('home');
@@ -87,9 +87,9 @@ const ToDoApp = () => {
           />
           <button
             onClick={() => setCurrentView('addTask')}
-            className="fixed bottom-5 right-5 bg-blue-500 text-white p-4 rounded-full shadow-lg"
+            className="fixed bottom-6 right-6 w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-600 transition-colors"
           >
-            + Add Task
+           <Plus className="w-6 h-6" />
           </button>
         </>
       )}
