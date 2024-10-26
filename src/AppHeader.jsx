@@ -1,8 +1,10 @@
-// AppHeader.jsx
 import React from 'react';
+import { useTaskContext } from './TaskContext';
 import { Search, ChevronLeft, Settings, Bell } from 'lucide-react';
-
-const AppHeader = ({ currentView, setCurrentView, searchQuery, setSearchQuery }) => (
+const AppHeader = () => {
+    const {searchQuery, setSearchQuery, currentView , setCurrentView} = useTaskContext()
+    return (
+        <>
   <header className="sticky top-0 z-10 bg-white shadow-sm">
     <div className="max-w-screen-lg mx-auto">
       <div className="flex items-center justify-between p-4">
@@ -32,6 +34,8 @@ const AppHeader = ({ currentView, setCurrentView, searchQuery, setSearchQuery })
       </div>
     </div>
   </header>
-);
+  </>
+    )
+};
 
 export default AppHeader;

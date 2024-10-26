@@ -328,13 +328,23 @@
 // };
 
 // export default ToDoApp;
-import React from 'react'
-import ToDoApp from './TodoApp'
+import React from 'react';
+import ToDoApp from './TodoApp';
+import { TaskProvider } from './TaskContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './HomePage';
 
-const App = () => {
+function App () {
   return (
-    <ToDoApp/>
-  )
+  <TaskProvider>
+    <Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/todo" element={<ToDoApp />} />
+    </Routes>
+    </Router>
+  </TaskProvider>
+);
 }
+export default App;
 
-export default App
