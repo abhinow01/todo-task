@@ -60,10 +60,6 @@ const ToDoApp = () => {
     pending: tasks.filter((task) => !task.completed).length,
   };
 
-//   const weekDates = Array.from({ length: 7 }, (_, i) => ({
-//     date: new Date(Date.now() + i * 86400000).toLocaleDateString(),
-//     isToday: i === 0,
-//   }));
 
   return (
     <div className="ToDoApp">
@@ -77,6 +73,17 @@ const ToDoApp = () => {
         <>
           <WeekCalendar />
           <TaskStats taskStats={taskStats} />
+          <div className="p-4">
+                 <h2 className="text-lg font-bold mb-4">Weekly Progress</h2>
+                <div className="w-full h-4 bg-blue-100 rounded-full">
+                 <div 
+                    className="h-full bg-blue-500 rounded-full transition-all duration-300"
+                     style={{ 
+                       width: `${(taskStats.completed / (taskStats.completed + taskStats.pending)) * 100 || 0}%` 
+                     }}
+                   />
+                 </div>
+               </div>
           <TaskList
             tasks={tasks}
             filteredTasks={filteredTasks}

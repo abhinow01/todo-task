@@ -2,7 +2,9 @@
 import React from 'react';
 import { X } from 'lucide-react';
 
-const TaskForm = ({ newTask, setNewTask, addTask, isEditing, setCurrentView }) => (
+const TaskForm = ({ newTask, setNewTask, addTask, isEditing, setCurrentView }) => {
+    const today = new Date().toISOString().split('T')[0]
+    return (
   <div className="p-4">
     <form onSubmit={addTask} className="bg-white rounded-lg shadow-sm">
       <div className="p-4 border-b flex justify-between items-center">
@@ -58,6 +60,7 @@ const TaskForm = ({ newTask, setNewTask, addTask, isEditing, setCurrentView }) =
           <input
             type="date"
             required
+            min={today}
             className="w-full p-2 border rounded-lg"
             value={newTask.date}
             onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
@@ -84,6 +87,7 @@ const TaskForm = ({ newTask, setNewTask, addTask, isEditing, setCurrentView }) =
       </div>
     </form>
   </div>
-);
 
+);
+}
 export default TaskForm;
